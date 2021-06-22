@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('create' , [PostController::class , 'create'])->name('create');
-Route::post('create' , [PostController::class , 'store'])->name('store');
+Route::get('create', [PostController::class, 'create'])->name('create');
+Route::post('create', [PostController::class, 'store'])->name('store');
+
+Route::get('custom-validation', [FormController::class, 'checkValidation'])->name('form.submit');
